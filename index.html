@@ -183,24 +183,31 @@
   }
   .tip-box b{font-family:'Space Grotesk',sans-serif; font-size:11px; text-transform:uppercase; letter-spacing:0.06em;}
 
-  /* NOTA DE ESTRUTURA (visível só no arquivo de trabalho, remover antes de vender) */
-  .build-note{
-    background:#FFF7E8; border:1px dashed var(--gold); border-radius:12px; padding:16px 20px;
-    font-size:13px; color:#7A5B18; margin-bottom:24px;
+  /* SINALIZAÇÃO DE CONTEÚDO EM PRODUÇÃO */
+  .wip-badge{
+    display:inline-flex; align-items:center; gap:9px;
+    background:#FFF7E8; border:1px solid var(--gold); color:#7A5B18;
+    padding:9px 16px; border-radius:30px; font-family:'Space Grotesk',sans-serif;
+    font-size:11.5px; font-weight:600; letter-spacing:0.03em; margin-bottom:18px;
   }
-  .build-note b{font-family:'Space Grotesk',sans-serif;}
+  .wip-badge svg{width:15px; height:15px; flex-shrink:0;}
+  .wip-badge .dot{
+    width:7px; height:7px; border-radius:50%; background:var(--clay);
+    animation:wip-pulse 1.6s ease-in-out infinite; flex-shrink:0;
+  }
+  @keyframes wip-pulse{0%,100%{opacity:1; transform:scale(1);} 50%{opacity:0.35; transform:scale(1.4);}}
 
-  /* UPSELL PLACEHOLDER (dentro do conteúdo — pra elevar ticket depois) */
-  .upsell{
-    background:var(--olive); color:var(--cream-text); border-radius:18px; padding:36px 32px; margin-top:10px;
+  .wip-panel{
+    border:1.5px dashed var(--gold); border-radius:18px; padding:52px 32px;
+    text-align:center; background:#FFFDF6;
   }
-  .upsell .eyebrow{color:var(--gold); margin-bottom:10px;}
-  .upsell h3{font-size:22px; margin-bottom:10px;}
-  .upsell p{font-size:14.5px; color:#E3E8D3; max-width:52ch; margin-bottom:16px;}
-  .upsell .btn{
-    display:inline-block; background:var(--clay); padding:12px 22px; border-radius:10px;
-    font-family:'Space Grotesk',sans-serif; font-size:13.5px; font-weight:600;
+  .wip-panel .wip-icon{width:38px; height:38px; color:var(--gold); margin:0 auto 16px;}
+  .wip-panel h4{
+    font-family:'Fraunces',serif; font-size:20px; color:var(--clay-deep); margin-bottom:8px;
   }
+  .wip-panel p{font-size:13.5px; color:#8A8578; max-width:40ch; margin:0 auto;}
+  .wip-panel .wip-badge{margin-top:18px; margin-bottom:0;}
+
 
   @media (max-width: 900px){
     body{flex-direction:column;}
@@ -244,10 +251,6 @@
       <h4>04 · Finais Doces</h4>
       <a class="navlink" href="#curso-4">Abrir capítulo</a>
     </div>
-    <div class="navgroup">
-      <h4>Bônus</h4>
-      <a class="navlink" href="#bonus">Oferta especial</a>
-    </div>
   </div>
 </nav>
 
@@ -272,12 +275,14 @@
 
   <section class="page intro" id="intro">
     <div class="wrap">
-      <div class="build-note"><b>Nota de montagem:</b> esqueleto estrutural — texto de boas-vindas e receitas ainda serão escritos. Remover este aviso antes de publicar.</div>
-      <div class="eyebrow" style="color:var(--clay-deep);">Boas-vindas</div>
-      <h2>[Texto de introdução entra aqui]</h2>
-      <p class="placeholder-line w90" style="height:15px;"></p>
-      <p class="placeholder-line w80" style="height:15px;"></p>
-      <p class="placeholder-line w60" style="height:15px;"></p>
+      <div class="eyebrow" style="color:var(--clay-deep); margin-bottom:16px;">Boas-vindas</div>
+      <div class="wip-panel" style="text-align:left; padding:32px 28px;">
+        <div class="wip-badge" style="margin-top:0;">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="dot"></span> CONTEÚDO SERÁ DISPONIBILIZADO EM BREVE
+        </div>
+        <p style="max-width:none;">O texto de boas-vindas deste livro está sendo escrito.</p>
+      </div>
 
       <div class="toc-list">
         <div class="toc-row"><span>01 — Mezze &amp; Entradinhas</span><span class="n">22 receitas</span></div>
@@ -1175,7 +1180,12 @@
 
   <section class="page" style="min-height:auto; padding:60px 64px;">
     <div class="wrap" style="max-width:820px;">
-      <div class="build-note">Usar o mesmo modelo de card da seção 01 · 26 receitas a preencher aqui.</div>
+      <div class="wip-panel">
+        <svg class="wip-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h4>Direto do Mar</h4>
+        <p>26 receitas sendo finalizadas. Volta aqui em breve.</p>
+        <div class="wip-badge"><span class="dot"></span> EM PRODUÇÃO</div>
+      </div>
     </div>
   </section>
 
@@ -1191,7 +1201,12 @@
 
   <section class="page" style="min-height:auto; padding:60px 64px;">
     <div class="wrap" style="max-width:820px;">
-      <div class="build-note">Usar o mesmo modelo de card da seção 01 · 31 receitas a preencher aqui.</div>
+      <div class="wip-panel">
+        <svg class="wip-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h4>Grãos, Folhas &amp; Leguminosas</h4>
+        <p>31 receitas sendo finalizadas. Volta aqui em breve.</p>
+        <div class="wip-badge"><span class="dot"></span> EM PRODUÇÃO</div>
+      </div>
     </div>
   </section>
 
@@ -1207,19 +1222,11 @@
 
   <section class="page" style="min-height:auto; padding:60px 64px;">
     <div class="wrap" style="max-width:820px;">
-      <div class="build-note">Usar o mesmo modelo de card da seção 01 · 21 receitas a preencher aqui.</div>
-    </div>
-  </section>
-
-  <!-- ===== BÔNUS / UPSELL ===== -->
-  <section class="page" id="bonus" style="min-height:auto; padding:70px 64px 100px;">
-    <div class="wrap" style="max-width:820px;">
-      <div class="build-note"><b>Espaço reservado para oferta interna:</b> aqui entra a chamada pra elevar o ticket (ex: consultoria, planner semanal, curso, comunidade) — decidir a oferta antes de escrever o copy.</div>
-      <div class="upsell">
-        <div class="eyebrow">Oferta Especial Para Leitores</div>
-        <h3>[Nome da oferta de upsell]</h3>
-        <p>[Descrição da oferta interna — o que ela resolve, por que faz sentido pra quem terminou o ebook]</p>
-        <span class="btn">[Texto do botão]</span>
+      <div class="wip-panel">
+        <svg class="wip-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h4>Finais Doces</h4>
+        <p>21 receitas sendo finalizadas. Volta aqui em breve.</p>
+        <div class="wip-badge"><span class="dot"></span> EM PRODUÇÃO</div>
       </div>
     </div>
   </section>
